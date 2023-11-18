@@ -8,7 +8,7 @@ public class DataManager : MonoBehaviour
 {
     public static DataManager Instance { get; private set; }
     public int HigestScore { get; private set; }
-    public string PlayerName { get; private set; }
+    public string BestPlayerName { get; private set; }    
 
     private void Awake()
     {
@@ -33,12 +33,14 @@ public class DataManager : MonoBehaviour
         else
         {
             //replace old  hisgscore and playername
-            PlayerName = playername;
+            BestPlayerName = playername;
             HigestScore = score;
 
             return true; // return true if recent score IS a new high score
         }
     }
+
+    public void 
 
     [System.Serializable]
     private class BestPlayer
@@ -52,7 +54,7 @@ public class DataManager : MonoBehaviour
         try
         {
             BestPlayer best = new BestPlayer();
-            best.Name = PlayerName;
+            best.Name = BestPlayerName;
             best.Score = HigestScore;
 
             string json_bestScore = JsonUtility.ToJson(best);
@@ -75,12 +77,12 @@ public class DataManager : MonoBehaviour
             BestPlayer bestPlayer = JsonUtility.FromJson<BestPlayer>(json_savedBestScore);
             
             HigestScore = bestPlayer.Score;
-            PlayerName = bestPlayer.Name;
+            BestPlayerName = bestPlayer.Name;
         }
         else
         {
             HigestScore = 0;
-            PlayerName = "NoHighScore";
+            BestPlayerName = "NoHighScore";
         }
     }
 }
