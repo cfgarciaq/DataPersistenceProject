@@ -48,13 +48,20 @@ public class DataManager : MonoBehaviour
 
     private void SaveScore()
     {
-        BestPlayer best = new BestPlayer();
-        best.Name = PlayerName;
-        best.Score = HigestScore;
+        try
+        {
+            BestPlayer best = new BestPlayer();
+            best.Name = PlayerName;
+            best.Score = HigestScore;
 
-        string json_bestScore = JsonUtility.ToJson(best);
+            string json_bestScore = JsonUtility.ToJson(best);
 
-        File.WriteAllText($"{Application.persistentDataPath}/savedBestScore.json", json_bestScore);
+            File.WriteAllText($"{Application.persistentDataPath}/savedBestScore.json", json_bestScore);
+        }
+        catch(Exception e)
+        {
+            Debug.Log($"Error: {e} \nCouldn't save json file");
+        }
     }
 
     private void LoadScore()
