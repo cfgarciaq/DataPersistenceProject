@@ -3,12 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DataManager : MonoBehaviour
-{
+{    
     public static DataManager Instance { get; private set; }
     public int HigestScore { get; private set; }
-    public string BestPlayerName { get; private set; }    
+    public string BestPlayerName { get; private set; }
+
+
+    public enum PlayerNameIncidents
+    {
+        Accepted, Empty, TooLong
+    }
+
+    private string newPlayerName;
 
     private void Awake()
     {
@@ -40,7 +49,19 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    public void 
+    public bool SetNewPlayerName(string name)
+    {
+        if (name.Length > 0)
+        {
+            BestPlayerName = name;
+            return true;
+        }
+        else
+        {
+            //display no name writen message
+            return false;
+        }
+    }
 
     [System.Serializable]
     private class BestPlayer
