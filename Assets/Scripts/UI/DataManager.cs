@@ -27,7 +27,7 @@ public class DataManager : MonoBehaviour
         LoadScore();
     }    
 
-    public bool CheckBestScore(string playername,int score)
+    public bool CheckBestScore(int score)
     {
         if(score <= HigestScore)
         {
@@ -36,7 +36,7 @@ public class DataManager : MonoBehaviour
         else
         {
             //replace old  hisgscore and playername
-            BestPlayerName = playername;
+            BestPlayerName = newPlayerName;
             HigestScore = score;
 
             return true; // return true if recent score IS a new high score
