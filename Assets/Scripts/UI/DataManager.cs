@@ -28,14 +28,15 @@ public class DataManager : MonoBehaviour
     {
         if(score <= HigestScore)
         {
-            return false;
+            return false; // return false if recent score is NOT a new high score
         }
         else
         {
+            //replace old  hisgscore and playername
             PlayerName = playername;
             HigestScore = score;
 
-            return true;
+            return true; // return true if recent score IS a new high score
         }
     }
 
