@@ -69,5 +69,10 @@ public class DataManager : MonoBehaviour
             HigestScore = bestPlayer.Score;
             PlayerName = bestPlayer.Name;
         }
+        else
+        {
+            HigestScore = 0;
+            PlayerName = "NoHighScore"
+        }
     }
 }
