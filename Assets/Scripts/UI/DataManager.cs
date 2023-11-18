@@ -72,7 +72,7 @@ public class DataManager : MonoBehaviour
         else
         {
             HigestScore = 0;
-            PlayerName = "NoHighScore"
+            PlayerName = "NoHighScore";
         }
     }
 }
