@@ -11,12 +11,6 @@ public class DataManager : MonoBehaviour
     public int HigestScore { get; private set; }
     public string BestPlayerName { get; private set; }
 
-
-    public enum PlayerNameIncidents
-    {
-        Accepted, Empty, TooLong
-    }
-
     private string newPlayerName;
 
     private void Awake()
@@ -53,7 +47,7 @@ public class DataManager : MonoBehaviour
     {
         if (name.Length > 0)
         {
-            BestPlayerName = name;
+            newPlayerName = name;
             return true;
         }
         else
