@@ -57,6 +57,11 @@ public class DataManager : MonoBehaviour
         }
     }
 
+    private void OnApplicationQuit()
+    {
+        SaveScore();
+    }
+
     [System.Serializable]
     private class BestPlayer
     {
